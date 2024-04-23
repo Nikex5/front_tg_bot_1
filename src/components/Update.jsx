@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 
 
 
-function Users() {
+function Update() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch('/users')
+        fetch('/update_user')
             .then(res => res.json())
             .then(res => {
                 console.log(res)
@@ -18,20 +18,12 @@ function Users() {
         <>
             {users.map((item) => (
                 <div>
-                    {item.id} {item.name} {item.lastname} {item.age} {item.tg_login}
+                    {item.id} {item.name}
                 </div>
             ))}
-            {/* //карточки товара */}
-            {users.map((item) => (
-                <div>
-                    {item.id} {item.name} {item.lastname} {item.age} {item.tg_login}
-                </div>
-            ))}
-            {/* таблица */}
-
         </>
     )
 
 }
 
-export default Users
+export default Update
