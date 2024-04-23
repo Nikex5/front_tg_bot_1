@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Checkbox, Form, Input, InputNumber } from 'antd';
 const onFinish = (values) => {
     console.log('Success:', values);
-    fetch(`'http://45.8.248.11:3010/add_user?name=${values.username}&lastname=${values.lastname}&age=${values.age}&tg_login=${values.tglogin}'`)
+    fetch(`/add_user?name=${values.username}&lastname=${values.lastname}&age=${values.age}&tg_login=${values.tglogin}`)
         .then(res => res.json)
         .then(res => console.log(res))
 };
