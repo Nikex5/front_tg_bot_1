@@ -3,6 +3,7 @@ import { Tabs } from 'antd';
 import Users from './Users';
 import Update from './Update';
 import CreateUser from './CreateUser';
+import Delete from './Delete';
 const onChange = (key) => {
     console.log(key);
 };
@@ -21,6 +22,11 @@ const items = [
         key: '3',
         label: 'Обновление',
         children: <Update />,
+    },
+    {
+        key: '4',
+        label: 'Удаление',
+        children: <Delete />,
     },
 ];
 const App = () => <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
