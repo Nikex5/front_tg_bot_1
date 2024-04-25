@@ -61,7 +61,7 @@ function Users() {
 
                         {/* //карточки товара */ }
 
-                        return <Card title={itemCard.id} bordered={false} style={{ with: 300 }}>
+                        return <Card title={itemCard.id} bordered={false} style={{ width: 300 }}>
                             {itemCard.name} {itemCard.lastname} {itemCard.age} {itemCard.tg_login}
                         </Card>
 
