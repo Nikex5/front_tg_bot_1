@@ -46,7 +46,7 @@ function Users() {
                 {users.length > 0 &&
 
                     users.map((item) => {
-                        <div>
+                        return <div>
                             {item.id} {item.name} {item.lastname} {item.age} {item.tg_login}
                         </div>
                     })
@@ -61,7 +61,7 @@ function Users() {
 
                         {/* //карточки товара */ }
 
-                        <Card title={itemCard.id} bordered={false}>
+                        return <Card title={itemCard.id} bordered={false}>
                             {itemCard.name} {itemCard.lastname} {itemCard.age} {itemCard.tg_login}
                         </Card>
 
