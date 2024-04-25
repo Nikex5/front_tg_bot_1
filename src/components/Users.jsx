@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Table } from 'antd';
+import { Card, Flex, Table } from 'antd';
 
 
 function Users() {
@@ -53,27 +53,25 @@ function Users() {
                 }
             </div>
 
-            <div><h1>отрисовка через карточки</h1>
-                {users.length > 0 &&
-
-                    users.map((itemCard) => {
-
-
-                        {/* //карточки товара */ }
-
-                        return <Card title={itemCard.id} bordered={false} style={{ width: 300 }}>
-                            {itemCard.name} {itemCard.lastname} {itemCard.age} {itemCard.tg_login}
-                        </Card>
-
-
-
-                    })}
-
+            <div>
+                <h1>Отрисовка через карточки</h1>
+                {users.length > 0 && (
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
+                        {users.map((itemCard) => {
+                            return (
+                                <Card title={itemCard.id} bordered={false} style={{ width: 300 }}>
+                                    {itemCard.name} {itemCard.lastname} {itemCard.age} {itemCard.tg_login}
+                                </Card>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
+
 
             {/* таблица */}
 
-            <Table dataSource={users} columns={columns} />;
+            < Table dataSource={users} columns={columns} />;
 
 
         </>
