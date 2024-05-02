@@ -47,6 +47,14 @@ function Users() {
             dataIndex: 'tg_login',
             key: 'tg_login',
         },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (rec) => <div>
+                <EditOutlined onClick={() => update(rec.id)} />
+                <CloseOutlined onClick={() => deleteUser(rec.id)} />
+            </div >
+        },
     ];
 
 
@@ -72,7 +80,8 @@ function Users() {
                         {users.map((itemCard) => {
                             return (
                                 <Card title={itemCard.id} bordered={false} style={{ width: 300 }}>
-                                    {itemCard.name} {itemCard.lastname} {itemCard.age} {itemCard.tg_login}
+                                    {itemCard.name} {itemCard.lastname} {itemCard.age} {itemCard.tg_login} <EditOutlined onClick={() => update(itemCard.id)} />
+                                    <CloseOutlined onClick={() => deleteUser(itemCard.id)} />
                                 </Card>
                             );
                         })}
