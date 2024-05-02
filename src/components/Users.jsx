@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Card, Flex, Table } from 'antd';
+import { EditOutlined, CloseOutlined } from '@ant-design/icons';
 
 
 function Users() {
     const [users, setUsers] = useState([])
+
 
     useEffect(() => {
         fetch('/users')
@@ -14,6 +16,15 @@ function Users() {
             })
     }, [])
 
+    const update = (id_user_for_update) => {
+        alert(id_user_for_update)
+
+    }
+
+    const deleteUser = (id_user_for_delete) => {
+        alert(id_user_for_delete)
+
+    }
 
     const columns = [
         {
@@ -47,7 +58,8 @@ function Users() {
 
                     users.map((item) => {
                         return <div>
-                            {item.id} {item.name} {item.lastname} {item.age} {item.tg_login}
+                            {item.id} {item.name} {item.lastname} {item.age} {item.tg_login} <EditOutlined onClick={() => update(item.id)} />
+                            <CloseOutlined onClick={() => deleteUser(item.id)} />
                         </div>
                     })
                 }

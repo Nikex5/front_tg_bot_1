@@ -4,6 +4,8 @@ import Users from './Users';
 import Update from './Update';
 import CreateUser from './CreateUser';
 import Delete from './Delete';
+import Test from './Test';
+
 const onChange = (key) => {
     console.log(key);
 };
@@ -27,6 +29,11 @@ const items = [
         key: '4',
         label: 'Удаление',
         children: <Delete />,
+    },
+    {
+        key: '5',
+        label: 'Тест',
+        children: <Test />,
     },
 ];
 const App = () => <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
