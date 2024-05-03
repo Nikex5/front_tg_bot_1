@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Flex, Table } from 'antd';
+import { Card, Flex, Table, message } from 'antd';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
 
 
@@ -31,7 +31,9 @@ function Users() {
         fetch(`/delete_user?id_user=${id_user_for_delete}`)
             .then(res => res.text())
             .then(res => {
-                alert(res)
+                if (res.response.length === 0) {
+                    message.success('Пользователь успешно удален')
+                }
                 getUsers()
             })
 
