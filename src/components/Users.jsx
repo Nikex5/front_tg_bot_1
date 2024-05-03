@@ -22,7 +22,9 @@ function Users() {
     }
 
     const deleteUser = (id_user_for_delete) => {
-        alert(id_user_for_delete)
+        fetch(`/delete_user?id_user=${id_user_for_delete}`)
+            .then(res => res.text())
+            .then(res => alert(res))
 
     }
 

@@ -6,7 +6,7 @@ function Delete() {
     const sendToBek = () => {
         console.log(id);
         fetch(`/delete_user?id_user=${id}`)
-            .then(res => res.json)
+            .then(res => res.json())
             .then(res => console.log(res))
     }
     return (
