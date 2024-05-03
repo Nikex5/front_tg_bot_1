@@ -8,13 +8,19 @@ function Users() {
 
 
     useEffect(() => {
+        getUsers()
+    }, [])
+
+
+    const getUsers = () => {
         fetch('/users')
             .then(res => res.json())
             .then(res => {
                 console.log(res)
                 setUsers(res.response)
             })
-    }, [])
+    }
+
 
     const update = (id_user_for_update) => {
         alert(id_user_for_update)
@@ -24,7 +30,10 @@ function Users() {
     const deleteUser = (id_user_for_delete) => {
         fetch(`/delete_user?id_user=${id_user_for_delete}`)
             .then(res => res.text())
-            .then(res => alert(res))
+            .then(res => {
+                alert(res)
+                getUsers()
+            })
 
     }
 
