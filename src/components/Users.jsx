@@ -32,7 +32,7 @@ function Users() {
             .then(res => res.text())
             .then(res => {
                 if (res.response.length === 0) {
-                    message.success('Пользователь успешно удален')
+                    message.info('Пользователь успешно удален')
                 }
                 getUsers()
             })
