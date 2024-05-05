@@ -39,7 +39,6 @@ function Users() {
                 message.info('Пользователь успешно удален')
                 // }
                 getUsers()
-                info()
             })
 
     }
