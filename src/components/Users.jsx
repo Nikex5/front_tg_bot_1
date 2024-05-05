@@ -27,14 +27,19 @@ function Users() {
 
     }
 
+    const info = () => {
+        message.info('This is a normal message');
+    };
+
     const deleteUser = (id_user_for_delete) => {
         fetch(`/delete_user?id_user=${id_user_for_delete}`)
             .then(res => res.text())
             .then(res => {
-                if (res.response.length === 0) {
-                    message.info('Пользователь успешно удален')
-                }
+                // if (res.response.length === 0) {
+                message.info('Пользователь успешно удален')
+                // }
                 getUsers()
+                info()
             })
 
     }
