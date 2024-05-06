@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Card, Flex, Table, message } from 'antd';
+import { Card, Flex, Table, message, Modal } from 'antd';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
+import CreateUser from "./CreateUser";
 
 
 function Users() {
@@ -11,6 +12,14 @@ function Users() {
         getUsers()
     }, [])
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
     const getUsers = () => {
         fetch('/users')
@@ -22,8 +31,8 @@ function Users() {
     }
 
 
-    const update = (id_user_for_update) => {
-        alert(id_user_for_update)
+    const update = () => {
+        setIsModalOpen(true);
 
     }
 
@@ -35,9 +44,9 @@ function Users() {
         fetch(`/delete_user?id_user=${id_user_for_delete}`)
             .then(res => res.text())
             .then(res => {
-                // if (res.response.length === 0) {
-                message.info('Пользователь успешно удален')
-                // }
+                if (res.response.length === 0) {
+                    message.info('Пользователь успешно удален')
+                }
                 getUsers()
             })
 
@@ -78,7 +87,14 @@ function Users() {
 
     return (
         <>
-            <div><h1>простая отрисовка</h1>
+            <div>
+                <h1>Создание пользователя</h1>
+
+                <CreateUser />
+            </div>
+
+            <div>
+                <h1>простая отрисовка</h1>
                 {users.length > 0 &&
 
                     users.map((item) => {
@@ -110,7 +126,13 @@ function Users() {
             {/* таблица */}
             <h1>Отрисовка c помощью таблицы</h1>
             < Table dataSource={users} columns={columns} />;
-
+            <div>
+                <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Modal>
+            </div>
 
         </>
     )
