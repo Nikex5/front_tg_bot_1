@@ -108,7 +108,7 @@ function Users() {
 
 
             {/* таблица */}
-
+            <h1>Отрисовка c помощью таблицы</h1>
             < Table dataSource={users} columns={columns} />;
 
 
